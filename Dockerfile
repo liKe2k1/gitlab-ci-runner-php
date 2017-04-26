@@ -1,7 +1,7 @@
 #
 # Dockerfile for gitlab-ci-runner-php
 #
-FROM php:7.1-cli
+FROM php:7.1.4-cli
 
 MAINTAINER Tobias Ehrig <me@t0by.eu>
 

@@ -40,7 +40,7 @@ ENV DEBS \
 	libaspell-dev \
 	libsnmp-dev \
 	libpcre3-dev \
-	libtidy-dev \
+	libtidy-dev
 
 RUN set -xe \
 	&& apt-get update -yqq \

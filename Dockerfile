@@ -1,9 +1,9 @@
 #
 # Dockerfile for gitlab-ci-runner-php
 #
-FROM php:latest
+FROM php:7.1-cli
 
-MAINTAINER Tobias Ehrig <tobias.ehrig@hermesworld.com>
+MAINTAINER Tobias Ehrig <me@t0by.eu>
 
 ENV PHPMODS \
 	mbstring \
@@ -37,11 +37,11 @@ ENV DEBS \
 	libldap2-dev \
 	unixodbc-dev \
 	libsqlite3-dev \
-	libaspell-dev 
+	libaspell-dev \
 	libsnmp-dev \
 	libpcre3-dev \
 	libtidy-dev \
-	
+
 RUN set -xe \
 	&& apt-get update -yqq \
 	&& apt-get install -y $DEBS \

@@ -27,6 +27,7 @@ ENV PHPMODS \
 RUN set -xe && \
 	apt-get update -yqq && \
 	apt-get install -y \ 
+	phpunit \
 	$PHP_MODS \
 	--no-install-recommends && \
 	rm -r /var/Lib/apt/lists/* && \

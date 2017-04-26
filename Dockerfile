@@ -45,7 +45,7 @@ ENV DEBS \
 RUN set -xe \
 	&& apt-get update -yqq \
 	&& apt-get install -y $DEBS \
-	&& docker-php-ext-install $PHP_MODS \
+	&& docker-php-ext-install $PHPMODS \
 	&& rm -r /var/lib/apt/lists/* 
 	
 RUN curl -sS https://getcomposer.org/installer | php && \

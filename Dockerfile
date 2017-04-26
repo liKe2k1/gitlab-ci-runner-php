@@ -1,7 +1,7 @@
 #
 # Dockerfile for gitlab-ci-runner-php
 #
-FROM php:7.1-cli
+FROM php:latest
 
 MAINTAINER Tobias Ehrig <me@t0by.eu>
 
@@ -40,7 +40,7 @@ ENV DEBS \
 	libaspell-dev \
 	libsnmp-dev \
 	libpcre3-dev \
-	libtidy-dev \
+	libtidy-dev
 
 RUN set -xe \
 	&& apt-get update -yqq \

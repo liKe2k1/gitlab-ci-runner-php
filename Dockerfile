@@ -8,7 +8,7 @@ MAINTAINER Tobias Ehrig <me@t0by.eu>
 ENV PHPMODS \
 	mbstring \
 	mcrypt \
-	pdo-mysql \
+	pdo_mysql \
 	curl \
 	json \
 	intl \

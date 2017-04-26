@@ -20,6 +20,7 @@ ENV PHPMODS \
 ENV DEBS \
 	phpunit \
 	git \
+	zip \
 	libmcrypt-dev \
 	libpq-dev \
 	libcurl4-gnutls-dev \

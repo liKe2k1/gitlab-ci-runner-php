@@ -46,7 +46,7 @@ RUN set -xe \
 	&& apt-get update -yqq \
 	&& apt-get install -y $DEBS \
 	&& docker-php-ext-install $PHP_MODS \
-	rm -r /var/lib/apt/lists/* 
-
+	&& rm -r /var/lib/apt/lists/* 
+	
 RUN curl -sS https://getcomposer.org/installer | php && \
 	mv composer.phar /usr/local/bin/composer

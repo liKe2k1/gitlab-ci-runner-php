@@ -1,39 +1,52 @@
 #
-# Dockerfile for gitlab-symfony
+# Dockerfile for gitlab-ci-runner-php
 #
 FROM php:latest
 
 MAINTAINER Tobias Ehrig <tobias.ehrig@hermesworld.com>
 
-RUN echo "deb http://ftp.hosteurope.de/mirror/packages.dotdeb.org/ stable all" >> /etc/apt/sources.list
-RUN echo "deb-src http://ftp.hosteurope.de/mirror/packages.dotdeb.org/ stable all" >> /etc/apt/sources.list
-
-ADD  https://www.dotdeb.org/dotdeb.gpg /tmp/dotdeb.gpg
-RUN set -xe \
-	&& apt-key add /tmp/dotdeb.gpg
-
 ENV PHPMODS \
-	php7.1-mbstring \
-	php7.1-mcrypt \
-	php7.1-pdo-mysql \
-	php7.1-curl \
-	php7.1-json \
-	php7.1-intl \
-	php7.1-gd \
-	php7.1-xml \
-	php7.1-bz2 \
-	php7.1-opcache
+	mbstring \
+	mcrypt \
+	pdo-mysql \
+	curl \
+	json \
+	intl \
+	gd \
+	xml \
+	bz2 \
+	opcache
 
-RUN set -xe && \
-	apt-get update -yqq && \
-	apt-get install -y \ 
+ENV DEBS \
 	phpunit \
-	$PHP_MODS \
-	--no-install-recommends && \
-	rm -r /var/Lib/apt/lists/* && \
-	echo "de_DE.UTF-8 UTF-8" > /etc/locale.gen && \
-	localegen
+	git \
+	libmcrypt-dev \
+	libpq-dev \
+	libcurl4-gnutls-dev \
+	libicu-dev \
+	libvpx-dev \
+	libjpeg-dev \
+	libpng-dev \
+	libxpm-dev \
+	zlib1g-dev \
+	libfreetype6-dev \
+	libxml2-dev \
+	libexpat1-dev \
+	libbz2-dev \
+	libgmp3-dev \
+	libldap2-dev \
+	unixodbc-dev \
+	libsqlite3-dev \
+	libaspell-dev 
+	libsnmp-dev \
+	libpcre3-dev \
+	libtidy-dev \
 	
+RUN set -xe \
+	&& apt-get update -yqq \
+	&& apt-get install -y $DEBS \
+	&& docker-php-ext-install $PHP_MODS \
+	rm -r /var/lib/apt/lists/* 
 
-ENTRYPOINT ["docker-php-entrypoint"]
-CMD ["php", "-a"]
+RUN curl -sS https://getcomposer.org/installer | php && \
+	mv composer.phar /usr/local/bin/composer

@@ -9,6 +9,8 @@ ENV PHPMODS \
 	mbstring \
 	mcrypt \
 	pdo_mysql \
+	pdo_pgsql \
+	pgsql \
 	curl \
 	json \
 	intl \

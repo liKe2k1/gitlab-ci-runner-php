@@ -17,6 +17,7 @@ ENV PHPMODS \
 	gd \
 	xml \
 	bz2 \
+	ldap \
 	opcache
 
 ENV DEBS \

@@ -45,7 +45,8 @@ ENV DEBS \
 	libsnmp-dev \
 	libpcre3-dev \
 	libtidy-dev \
-	libldb-dev
+	libldb-dev \
+	libldap2-dev
 
 RUN set -xe \
 	&& apt-get update -yqq \
